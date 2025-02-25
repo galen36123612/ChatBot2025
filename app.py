@@ -3,7 +3,6 @@ import requests
 import json
 from flask_cors import CORS  # 添加CORS支持，可能需要安裝: pip install flask-cors
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 app = Flask(__name__)
 CORS(app)  # 啟用跨域支持
@@ -20,7 +19,7 @@ def send_message():
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": "Bearer {OPENROUTER_API_KEY}",
+            "Authorization": "Bearer <OPENROUTER_API_KEY>",
             "Content-Type": "application/json",
             "HTTP-Referer": "http://localhost:5000",
         },
