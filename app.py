@@ -8,7 +8,7 @@ CORS(app)  # 啟用跨域支持
 
 @app.route('/')
 def home():
-    return render_template('indexV2.html')  # 使用index.html作為模板
+    return render_template('index.html')  # 使用index.html作為模板
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
