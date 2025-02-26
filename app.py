@@ -2,10 +2,13 @@ from flask import Flask, render_template, request, jsonify, Response, render_tem
 import requests
 import json
 from flask_cors import CORS  # 添加CORS支持，可能需要安裝: pip install flask-cors
-
+import os  # 引入 os 模組來讀取環境變數
 
 app = Flask(__name__)
 CORS(app)  # 啟用跨域支持
+
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+SITE_URL = os.getenv("SITE_URL", "https://chat-bot2025-olhn2cy9f-galens-projects-2dc1580a.vercel.app/")
 
 @app.route('/')
 def home():
@@ -19,9 +22,9 @@ def send_message():
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": "Bearer <OPENROUTER_API_KEY>",
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:5000",
+            "HTTP-Referer": SITE_URL,
         },
         json={
             "model": "deepseek/deepseek-chat:free",
