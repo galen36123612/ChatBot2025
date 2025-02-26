@@ -10,11 +10,8 @@ CORS(app)  # 啟用跨域支持
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 SITE_URL = os.getenv("SITE_URL", "https://chat-bot2025-olhn2cy9f-galens-projects-2dc1580a.vercel.app/")
 
-@app.route('/send_message', methods=['POST'])
-def send_message():
-    user_message = request.json.get('message')
-    print(f"API Key: {OPENROUTER_API_KEY}")  # 檢查金鑰
-    print(f"User Message: {user_message}")   # 檢查輸入
+print(f"OPENROUTER_API_KEY: {OPENROUTER_API_KEY}")
+print(f"SITE_URL: {SITE_URL}")
 
 @app.route('/')
 def home():
