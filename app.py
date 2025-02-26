@@ -7,8 +7,8 @@ import os  # 引入 os 模組來讀取環境變數
 app = Flask(__name__)
 CORS(app)  # 啟用跨域支持
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-SITE_URL = os.getenv("SITE_URL", "https://chat-bot2025-olhn2cy9f-galens-projects-2dc1580a.vercel.app/")
+#OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+#SITE_URL = os.getenv("SITE_URL", "https://chat-bot2025-olhn2cy9f-galens-projects-2dc1580a.vercel.app/")
 
 
 @app.route('/')
@@ -23,9 +23,9 @@ def send_message():
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Authorization": f"Bearer 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",
             "Content-Type": "application/json",
-            "HTTP-Referer": SITE_URL,
+            "HTTP-Referer": "http://localhost:5000",
         },
         json={
             "model": "deepseek/deepseek-chat:free",
