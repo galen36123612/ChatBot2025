@@ -23,7 +23,7 @@ def send_message():
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             "Content-Type": "application/json",
             "HTTP-Referer": "http://localhost:5000",
         },
